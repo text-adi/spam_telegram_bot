@@ -44,6 +44,6 @@ async def back_to_main_menu(message: types.Message, state: FSMContext):
                      state=MainMenuState.add_text)
 async def add_text_btn(message: types.Message, state: FSMContext):
     parameter_str_db.exists_and_update_or_add('send_message', message.text)
-    text = "Зміненно текст"
+    text = "Змінено текст"
     await message.reply(text=text)
     await back_to_main_menu(message=message, state=state)
