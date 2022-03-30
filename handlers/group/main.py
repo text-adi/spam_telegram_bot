@@ -23,6 +23,7 @@ async def send_message_for_new_post(message: types.Message):
     if parameter_bool_db.exists('new_post'):
         if message.forward_from_chat.title == message.sender_chat.title:
             await message.reply(parameter_str_db.get_name('send_message'))
+            groups_db.group_exists_and_update_or_add(message.chat.id, message.chat.invite_link, message.chat.title)
 
 
 async def send_message_time():
